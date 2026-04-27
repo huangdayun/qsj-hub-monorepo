@@ -30,15 +30,22 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="bg-[#0D1B2A] text-white pt-20 pb-40 px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-extrabold mb-6 tracking-tight">
-            Professional Hardware <br /> 
-            <span className="text-[#FF9900]">Solution Hub</span>
+      <section className="bg-[#0D1B2A] text-white pt-20 pb-40 px-8 relative overflow-hidden">
+        {/* Decorative Grid Background */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none" 
+             style={{ backgroundImage: 'radial-gradient(#FF9900 0.5px, transparent 0.5px)', backgroundSize: '20px 20px' }} />
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-block bg-[#FF9900]/20 border border-[#FF9900]/50 text-[#FF9900] px-3 py-1 rounded-full text-[10px] font-black tracking-[0.2em] uppercase mb-6">
+            Industrial Grade Hardware // DIY Solutions
+          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight">
+            Visualize Strength: <br /> 
+            <span className="text-[#FF9900] italic">The Physics of QSJ</span>
           </h1>
-          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-            High-precision fasteners and DIY guides for makers, engineers, and hobbyists. 
-            Build your next project with the strength it deserves.
+          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+            From precision heat-set inserts to high-torque fasteners. 
+            Explore our technical simulation hub and build with data-backed confidence.
           </p>
         </div>
       </section>
