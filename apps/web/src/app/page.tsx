@@ -1,65 +1,108 @@
-import Image from "next/image";
+'use client';
+
+import InteractivePlayer from '../components/InteractivePlayer';
+import TechnicalLibrary from '../components/TechnicalLibrary';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-[#F8FAFC]">
+      {/* Navigation */}
+      <nav className="bg-[#0D1B2A] text-white py-4 px-8 sticky top-0 z-50 shadow-md">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-[#FF9900] rounded flex items-center justify-center font-bold text-black">Q</div>
+            <span className="font-bold text-xl tracking-tight">QSJ HARDWARE</span>
+          </div>
+          <div className="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#" className="hover:text-[#FF9900] transition-colors text-[#FF9900]">Solution Hub</a>
+            <a href="#" className="hover:text-[#FF9900] transition-colors text-gray-400">Products</a>
+            <a href="#" className="hover:text-[#FF9900] transition-colors text-gray-400">Technical Docs</a>
+            <a href="#" className="hover:text-[#FF9900] transition-colors text-gray-400">Project Guide</a>
+          </div>
+          <a 
+            href="https://www.amazon.com/s?me=AEEVOM437QYMG" 
+            target="_blank"
+            className="bg-[#FF9900] text-black px-4 py-1.5 rounded text-sm font-bold hover:bg-white transition-all"
+          >
+            Amazon Store
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="bg-[#0D1B2A] text-white pt-20 pb-40 px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl font-extrabold mb-6 tracking-tight">
+            Professional Hardware <br /> 
+            <span className="text-[#FF9900]">Solution Hub</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+            High-precision fasteners and DIY guides for makers, engineers, and hobbyists. 
+            Build your next project with the strength it deserves.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-8 -mt-24 pb-20 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Featured Video Solution */}
+        <div className="lg:col-span-2 space-y-8">
+          <div className="bg-white p-2 rounded-2xl shadow-xl overflow-hidden">
+            <InteractivePlayer />
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Ultimate Guide to Heat-Set Inserts</h2>
+            <div className="prose prose-gray max-w-none">
+              <p className="text-gray-600 leading-relaxed">
+                In this masterclass, we explore the nuances of heat-set insertion for 3D printed parts. 
+                Whether you're building a Voron 2.4 or a custom enclosure, using the right 
+                brass inserts and temperature profile is critical for joint strength.
+              </p>
+              <div className="grid grid-cols-2 gap-4 mt-6">
+                <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h4 className="font-bold text-blue-900 text-sm mb-1">Recommended Temp</h4>
+                  <p className="text-2xl font-black text-blue-600">220°C - 240°C</p>
+                </div>
+                <div className="bg-orange-50 p-4 rounded-lg border border-orange-100">
+                  <h4 className="font-bold text-orange-900 text-sm mb-1">Max Shear Load</h4>
+                  <p className="text-2xl font-black text-orange-600">450 N</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+        {/* Sidebar: Technical Library */}
+        <div className="space-y-8">
+          <TechnicalLibrary />
+          
+          <div className="bg-[#FF9900]/10 border border-[#FF9900]/20 p-6 rounded-2xl">
+            <h3 className="font-bold text-gray-900 mb-2">Need a Bulk Order?</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              For commercial projects and custom manufacturing requirements, 
+              contact our engineering team directly.
+            </p>
+            <button className="w-full bg-[#0D1B2A] text-white py-2 rounded font-bold text-sm">
+              Contact Sales
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-12 px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-8">
+          <div className="text-gray-400 text-sm">
+            © 2026 QSJ Hardware Hub. All rights reserved. 
+          </div>
+          <div className="flex gap-8 text-gray-400 text-sm">
+            <a href="#" className="hover:text-gray-900">Privacy Policy</a>
+            <a href="#" className="hover:text-gray-900">Terms of Service</a>
+            <a href="#" className="hover:text-gray-900">Shipping Info</a>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
