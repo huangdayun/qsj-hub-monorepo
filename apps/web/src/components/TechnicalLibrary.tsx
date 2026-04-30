@@ -41,10 +41,10 @@ const TechnicalLibrary: React.FC = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-      <div className="bg-[#0D1B2A] p-6 text-white">
-        <h3 className="text-xl font-bold">Technical Resource Library</h3>
-        <p className="text-gray-400 text-sm mt-1">Free CAD and PDF resources for your DIY projects.</p>
+    <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+      <div className="bg-gray-900 p-8 text-white">
+        <h3 className="text-xl font-black uppercase italic tracking-tighter">Technical Resource Library</h3>
+        <p className="text-gray-400 text-[10px] uppercase font-bold tracking-widest mt-2">Free CAD and PDF resources for your DIY projects.</p>
       </div>
       <div className="divide-y divide-gray-100">
         {assets.map((asset) => (

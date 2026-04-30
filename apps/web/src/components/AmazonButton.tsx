@@ -28,14 +28,15 @@ const AmazonButton: React.FC<AmazonButtonProps> = ({ asin, discountCode = 'QSJ10
   return (
     <button
       onClick={handleRedirect}
-      className="w-full bg-[#FF9900] hover:bg-white text-black font-black py-2.5 px-4 rounded-lg transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(255,153,0,0.39)] group"
+      className="w-full bg-[#FF9900] hover:bg-gray-900 text-white font-black py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(255,153,0,0.3)] group active:scale-[0.98]"
     >
       {copied ? (
-        <span className="text-xs uppercase tracking-tighter">Code Copied! Redirecting...</span>
+        <span className="text-[10px] uppercase tracking-widest">Code Copied // Redirecting...</span>
       ) : (
         <>
-          <span className="text-xs uppercase tracking-tight">View on Amazon</span>
-          <span className="bg-black/10 px-1.5 py-0.5 rounded text-[9px] font-bold">-10% OFF</span>
+          <span className="text-[10px] uppercase tracking-[0.2em]">View on Amazon</span>
+          <div className="w-[1px] h-3 bg-white/20 mx-1" />
+          <span className="text-[9px] font-bold">10% OFF</span>
         </>
       )}
     </button>

@@ -79,7 +79,7 @@ const HeroSimulator: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full aspect-video bg-black rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+    <div className="relative w-full aspect-video bg-gray-100 rounded-3xl overflow-hidden border border-gray-200 shadow-2xl">
       {/* Photorealistic Placeholder Video */}
       <video
         ref={videoRef}
@@ -87,24 +87,23 @@ const HeroSimulator: React.FC = () => {
         muted
         loop
         playsInline
-        className="w-full h-full object-cover opacity-70"
+        className="w-full h-full object-cover grayscale opacity-40 hover:grayscale-0 transition-all duration-700"
       >
         <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanical-parts-of-a-clock-working-together-4654-large.mp4" type="video/mp4" />
       </video>
 
-      {/* Cinematic Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 pointer-events-none" />
-      <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none" />
+      {/* Subtle Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/20 pointer-events-none" />
 
       {/* Lab HUD */}
       <div className="absolute top-8 left-8 z-20">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-2 h-2 bg-[#FF9900] rounded-full animate-pulse shadow-[0_0_10px_#FF9900]" />
-          <span className="text-[10px] font-black text-white/50 tracking-[0.3em] uppercase">
+          <span className="text-[10px] font-black text-gray-400 tracking-[0.3em] uppercase">
             QSJ Physics Lab // Internal Sim v2.2
           </span>
         </div>
-        <h2 className="text-2xl font-black text-white tracking-tighter italic">
+        <h2 className="text-2xl font-black text-gray-900 tracking-tighter italic">
           {activeScenario ? activeScenario.title : 'SCANNING FOR STRESS...'}
         </h2>
       </div>
@@ -114,21 +113,21 @@ const HeroSimulator: React.FC = () => {
 
       {/* Product Highlight Card */}
       {activeScenario && (
-        <div className="absolute bottom-12 right-12 w-80 bg-[#0D1B2A]/90 backdrop-blur-xl p-6 rounded-2xl border border-white/10 shadow-2xl animate-in fade-in zoom-in-95 slide-in-from-right-8 z-40">
+        <div className="absolute bottom-12 right-12 w-80 bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-gray-100 shadow-2xl animate-in fade-in zoom-in-95 slide-in-from-right-8 z-40">
           <div className="flex gap-4 mb-6">
-            <img src={activeScenario.image} alt={activeScenario.productName} className="w-20 h-20 rounded-lg border border-white/5 object-cover" />
+            <img src={activeScenario.image} alt={activeScenario.productName} className="w-20 h-20 rounded-lg border border-gray-100 object-cover" />
             <div>
               <span className="text-[9px] text-[#FF9900] font-bold uppercase tracking-widest mb-1 block">Component Detail</span>
-              <h3 className="text-white font-bold text-lg leading-tight">{activeScenario.productName}</h3>
-              <p className="text-[10px] text-white/40 mt-2 font-mono leading-relaxed italic">{activeScenario.highlight}</p>
+              <h3 className="text-gray-900 font-bold text-lg leading-tight">{activeScenario.productName}</h3>
+              <p className="text-[10px] text-gray-400 mt-2 font-mono leading-relaxed italic uppercase">{activeScenario.highlight}</p>
             </div>
           </div>
           
           <div className="grid grid-cols-2 gap-3 mb-6">
             {activeScenario.dataPoints.map(dp => (
-              <div key={dp.label} className="bg-white/5 p-2 rounded border border-white/5">
-                <div className="text-[8px] text-white/30 uppercase mb-0.5">{dp.label}</div>
-                <div className="text-xs font-black text-white font-mono">{dp.value}</div>
+              <div key={dp.label} className="bg-gray-50 p-2 rounded border border-gray-100">
+                <div className="text-[8px] text-gray-400 uppercase mb-0.5 font-bold">{dp.label}</div>
+                <div className="text-xs font-black text-gray-900 font-mono">{dp.value}</div>
               </div>
             ))}
           </div>
@@ -143,10 +142,10 @@ const HeroSimulator: React.FC = () => {
           <button
             key={s.id}
             onClick={() => { if (videoRef.current) videoRef.current.currentTime = s.time; }}
-            className={`text-[9px] font-bold px-3 py-1.5 rounded-full transition-all border ${
+            className={`text-[9px] font-bold px-4 py-2 rounded-full transition-all border ${
               activeScenario?.id === s.id 
-                ? 'bg-[#FF9900] text-black border-[#FF9900]' 
-                : 'bg-white/5 text-white/40 border-white/10 hover:border-white/30'
+                ? 'bg-[#FF9900] text-white border-[#FF9900] shadow-lg shadow-orange-200' 
+                : 'bg-white text-gray-400 border-gray-100 hover:border-gray-300 hover:text-gray-600'
             }`}
           >
             SCENE: {s.id.toUpperCase()}
